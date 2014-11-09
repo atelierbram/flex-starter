@@ -1,0 +1,6 @@
+* {
+  outline: 1px dotted salmon;
+  box-sizing: inherit;
+  -webkit-perspective: 300px;
+          perspective: 300px;
+  background: tan; }
