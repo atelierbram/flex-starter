@@ -3,8 +3,6 @@ Flex Starter
 
 Opinionated starter-theme and boilerplate for static site generation
 
-**WORK IN PROGRESS**
-
 This repository is build on top of [build-boilerplate](https://github.com/atelierbram/build-boilerplate) which in turn is a fork of [static-site-boilerplate](https://github.com/bdadam/static-site-boilerplate) by Adam Beres-Deak, with some modifications:
 
 - Sass instead of Less

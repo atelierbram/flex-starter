@@ -11,7 +11,7 @@ module.exports = function(grunt) {
                 layout: "layout.hbs",
                 partials: "src/templates/partials/**/*.hbs",
                 layoutdir: 'src/templates/layouts',
-                helpers: ['src/helpers/**.js']
+                helpers: ['handlebars-helper-autolink','handlebars-helper-isActive','src/helpers/**.js']
             },
 
             site: {
@@ -21,6 +21,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     flatten: false,
+                    // cwd: 'content/**/*.md',
                     cwd: 'content/',
                     src: ['**/*.{md,hbs,html,xml}'],
                     dest: 'dist'
@@ -69,7 +70,7 @@ module.exports = function(grunt) {
         concat: {
            dist: {
              files: {
-               'dist/static/main.js' :  ['src/js/main.js'],
+               'dist/static/main.js' :  ['src/js/*.js'],
              }
            }
          },
@@ -129,22 +130,24 @@ module.exports = function(grunt) {
             }
         },
 
+        // from the commandline run: grunt gh-pages to build the remote gh-pages branch:
+        // https://github.com/tschaub/grunt-gh-pages
         'gh-pages': {
           options: {
-            base: 'dist',
-            push: false
+            // base: 'dist',
+            // push: false
+            base: 'dist'
           },
           src: '**/*'
         }
 
     });
 
-    grunt.registerTask('build', ['clean', 'concat', 'uglify', 'sass', 'autoprefixer', 'cssmin', 'assemble', 'hashres', 'gh-pages']);
+    grunt.registerTask('build', ['clean', 'concat', 'uglify', 'sass', 'autoprefixer', 'cssmin', 'assemble', 'hashres']);
     grunt.registerTask('scss', ['sass', 'autoprefixer', 'cssmin', 'hashres']);
     grunt.registerTask('js', ['uglify', 'concat']);
     grunt.registerTask('html', ['assemble', 'hashres']);
     grunt.registerTask('default', ['build', 'connect', 'watch']);
-    grunt.registerTask('publish', ['gh-pages']);
 
     grunt.loadNpmTasks('assemble', 'grunt-hashres', 'grunt-gh-pages');
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);

@@ -1,0 +1,328 @@
+@import
+"mq",
+"color-vars";
+
+$nav-width: 12rem;
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.no-flexbox body {
+  position: relative;
+  min-height: 100%;
+}
+
+p {
+  flex-basis: 32em;
+  padding: .5em 0;
+  @include mq($until: tablet) {
+    max-width: 32em;
+  }
+}
+.no-flexbox p {
+  max-width: 32em;
+}
+.page-wrap {
+  flex: 1;
+    overflow-x: hidden;
+  @include mq($until: tablet) {
+  }
+}
+.nav-content-wrap {
+  margin: 0 auto;
+  background-color: #fff;
+
+  @include mq($until: tablet) {
+    display: flex;
+  }
+}
+
+.core .nav-content-wrap {
+  display: block;
+}
+
+.no-flexbox .nav-content-wrap,
+.no-js .nav-content-wrap {
+  @include mq($until: tablet) {
+    display: block;
+  }
+}
+.nav {
+
+  @include mq($until: tablet) {
+    flex-basis: 0;
+    transition: flex .3s;
+  }
+  @include mq($from: tablet) {
+    padding: 1rem 3rem .25rem 0;
+  }
+}
+.no-js .nav {
+  border-top: 5px solid rgba(white,.25);
+  border-bottom: 5px solid #ccc;
+  padding: 0 3rem .25rem 0;
+  flex-basis: initial;
+  transition: none;
+}
+.no-flexbox .nav {
+  flex-basis: initial;
+  display: block;
+}
+.js.no-flexbox .nav {
+  @include mq($until: tablet) {
+    display: none;
+  }
+}
+.js.no-flexbox .nav-active .nav {
+  @include mq($until: tablet) {
+    display: block;
+  }
+}
+
+.nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include mq($from: tablet) {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+}
+.no-js .nav ul {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.no-flexbox .nav ul {
+  display: block;
+  @include mq($from: tablet) {
+    padding-left: 3rem;
+  }
+}
+
+.nav ul li {
+  @include mq($from: tablet) {
+    margin-left: 3px;
+  }
+}
+.no-js .nav ul li {
+  margin-left: 3px;
+}
+.no-flexbox .nav ul li {
+  @include mq($from: tablet) {
+    margin: 0 0 0 .5em;
+    display: inline-block;
+  }
+}
+
+.nav a {
+  font-size: 1rem;
+  color: adjust-color($nav-color,$lightness: -5%);
+  text-decoration: none;
+  transition: background-color .4s, color .3s, border-color .3s;
+
+  @include mq($until: tablet) {
+    padding: 1rem 1.5rem;
+    display: flex;
+    border-top: 1px solid rgba(white,.5);
+    border-bottom: 1px solid rgba(black,.25);
+  }
+  @include mq($from: tablet) {
+    border-radius: .5em;
+    padding: .5em 1em;
+    border: 1px solid transparent;
+  }
+}
+
+
+.no-js .nav a {
+  @include mq($until: tablet) {
+    display: inline-block;
+    padding: .5em 1em;
+    border: 1px solid transparent;
+  }
+}
+.no-flexbox .nav a,
+.js.no-flexbox .nav a {
+   display: inline-block;
+  @include mq($until: tablet) {
+    display: block;
+    padding: 1rem 1.5rem;
+  }
+}
+
+.nav-active .nav {
+  @include mq($until: tablet) {
+    flex-basis: $nav-width;
+    background-color: #eee;
+  }
+}
+
+.no-js .nav-active .nav {
+  @include mq($until: tablet) {
+    flex-basis: initial;
+  }
+}
+.nav .list-item--current a,
+.nav a:hover,
+.nav a:active,
+.nav a:focus {
+  @include mq($until: tablet) {
+  background-color: $nav-color;
+  color: #fff;
+    border-bottom: 1px solid transparentize($cyan,.5);
+    border-top: 1px solid transparentize($ui-bg-color,.5);
+  }
+
+  @include mq($from: tablet) {
+    border-color: $nav-color;
+  }
+}
+
+.content {
+  padding: 1em 2em;
+  background-color: #fff;
+
+  @include mq($until: tablet) {
+    flex: 1;
+    z-index: 1;
+  }
+  @include mq($from: tablet) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-bottom: 3em;
+  }
+}
+.no-flexbox .content {
+  padding-bottom: 5em;
+}
+
+.ui-gutter {
+  text-align: left;
+  @include mq($until: tablet) {
+    background-color: #eee;
+    // margin-top: -3.75rem;
+  }
+}
+header {
+  background-color: #ddd;
+  min-height: 3.75rem;
+}
+header h1 {
+  margin: 0;
+  padding: .125rem 3rem .5rem;
+  line-height: 1.25;
+  @include mq($until: tablet) {
+    margin-left: 1em;
+  }
+}
+
+header h1 del {
+  text-decoration: line-through;
+  color: lighten($headerColor,25%);
+}
+.btn {
+  margin-top: .5em;
+  background-image: none;
+  background-color: #ddd;
+  border-color: #ccc #bbb #b3b3b3;
+}
+.btn:hover {
+  background-image: none;
+  background-color: #ccc;
+}
+.btn:active {
+  background-image: none;
+  background-color: #bbb;
+  border-color: #888 #999 #aaa;
+}
+.nav-active .btn {
+  z-index: 1;
+  background-color: $ui-bg-color;
+}
+.nav-active .btn:hover {
+  background-color: #bbb;
+}
+.btn-menu,
+.shape-hamburger {
+  cursor: pointer;
+}
+.btn-menu {
+  display: inline-block;
+  margin: 1.5rem 1.25rem .5rem;
+  padding: 0;
+  border-radius: 3px;
+  text-decoration: none;
+  text-align: center;
+  position: relative;
+  width: 42px;
+  height: 32px;
+
+  @include mq($from: tablet) {
+    display: none;
+  }
+}
+
+.shape-icon,
+.btn-menu__text {
+  position: absolute;
+  top:0;right:0;bottom:0;left:0;
+}
+.btn-menu__text {
+  margin-top: -1.25rem;
+  font-size: .875rem;
+  color: adjust-color($cyan,$lightness: -40%);
+}
+.shape-icon {
+  width: 16px;
+  height: 12px;
+  margin: .55rem 0 0 .75em;
+  background: inherit;
+}
+
+
+.shape-hamburger {
+  transition: fill .3s;
+  fill: adjust-color($cyan,$lightness: -33%);
+}
+.nav-active .shape-hamburger {
+  fill: adjust-color($cyan,$lightness: -20%);
+}
+
+.btn-menu:hover .shape-hamburger {
+  fill: adjust-color($cyan,$lightness: -20%);
+}
+
+.nav-active .shape-hamburger {
+  fill: $cyan;
+}
+a {
+  color: $link-color;
+}
+footer {
+  background-color: $ui-bg-color;
+}
+.no-flexbox footer {
+  position: absolute;
+  bottom:0;left:0;right:0;
+}
+footer a {
+  color: $cyan;
+  display: inline-block;
+  padding: 1.5em 0;
+}
+.truncate {
+  font-size: .5em;
+  max-width: 50%;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+}

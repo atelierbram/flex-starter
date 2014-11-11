@@ -1,8 +1,8 @@
 ---
-    title:          Home Page
+    title:          Page One
+    type:           page
+    sortOrder:      1
     description:    Meta description of the index page
-    sortOrder:      0
-
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
