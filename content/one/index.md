@@ -1,5 +1,5 @@
 ---
-    title:          Page One
+    title:          One
     type:           page
     sortOrder:      1
     description:    Meta description of the index page

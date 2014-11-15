@@ -1,5 +1,5 @@
 ---
-    title:          Page Four
+    title:          Four
     type:           page 
     sortOrder:      4
     description:    Meta description of the index page

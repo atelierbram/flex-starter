@@ -1,5 +1,5 @@
 ---
-    title:          Page Three
+    title:          Three
     type:           page
     slug:           three
     sortOrder:      3

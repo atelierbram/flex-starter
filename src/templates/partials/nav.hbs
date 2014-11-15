@@ -3,9 +3,5 @@
     <nav class="nav" id="nav">
    <!--   http://www.prototype-generator.com/templating-in-pg/template-helpers.html http://stackoverflow.com/questions/25878099/assemble-handlebars-sort-order -->
       <ul>{{#withSort pages 'data.sortOrder'}}<li><a href="{{autolink}}" {{isActive}}>{{data.title}}</a></li>{{/withSort}}</ul></nav>
-      <!--   </li><li>{{#each pages}}<a href="{{autolink}}" {{isActive}}></a>{{/each}} -->
-      <!--   </li><li {{#is slug "three"}}class="list&#45;item&#45;&#45;current"{{/is}}>{{#each pages}}<a href="{{autolink}}" {{isActive}}>three</a>{{/each}} -->
-      <!--   </li><li>{{#each pages}}<a href="{{autolink}}" {{isActive}}>four</a>{{/each}} -->
-      <!--   </li><li>{{#each pages}}<a href="{{autolink}}" {{isActive}}>five</a>{{/each}} -->
     <main class="content" id="content">
 

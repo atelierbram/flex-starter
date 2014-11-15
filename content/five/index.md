@@ -1,5 +1,5 @@
 ---
-    title:          Page Five
+    title:          Five
     type:           page 
     sortOrder:      5
     description:    Meta description of the index page

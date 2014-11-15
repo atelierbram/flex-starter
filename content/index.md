@@ -1,5 +1,5 @@
 ---
-    title:          Home Page
+    title:          Home
     description:    Meta description of the index page
     sortOrder:      0
 
