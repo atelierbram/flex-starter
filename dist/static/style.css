@@ -553,7 +553,7 @@ p {
     flex-basis: initial; } }
 
 @media all and (max-width: 39.99em) {
-  .nav .list-item--current a,
+  .nav .active,
   .nav a:hover,
   .nav a:active,
   .nav a:focus {
@@ -562,7 +562,7 @@ p {
     border-bottom: 1px solid rgba(0, 204, 255, 0.5);
     border-top: 1px solid rgba(0, 82, 102, 0.5); } }
 @media all and (min-width: 40em) {
-  .nav .list-item--current a,
+  .nav .active,
   .nav a:hover,
   .nav a:active,
   .nav a:focus {
